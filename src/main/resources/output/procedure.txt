@@ -1,0 +1,80 @@
+
+@Entity
+@Table(name = "THIS_IS_TABLE")
+
+@NamedStoredProcedureQueries(value = {
+		
+
+		@NamedStoredProcedureQuery(name = KEY_CLASS_NAME.KEY_PROC_NAME, procedureName = KEY_CLASS_NAME.KEY_PROC_NAME, parameters = {
+				@StoredProcedureParameter(mode = ParameterMode.REF_CURSOR, name = KEY_CLASS_NAME.v_output, type = void.class),
+@StoredProcedureParameter(mode = ParameterMode.IN, name =  ServiceReqLinkProc.v_id, type = Long.class),
+@StoredProcedureParameter(mode = ParameterMode.IN, name =  ServiceReqLinkProc.v_code, type = String.class),
+@StoredProcedureParameter(mode = ParameterMode.IN, name =  ServiceReqLinkProc.v_customerCode, type = String.class),
+@StoredProcedureParameter(mode = ParameterMode.IN, name =  ServiceReqLinkProc.v_fullName, type = String.class),
+@StoredProcedureParameter(mode = ParameterMode.IN, name =  ServiceReqLinkProc.v_phoneNumber, type = String.class),
+@StoredProcedureParameter(mode = ParameterMode.IN, name =  ServiceReqLinkProc.v_bankID, type = Long.class),
+@StoredProcedureParameter(mode = ParameterMode.IN, name =  ServiceReqLinkProc.v_cardNumber, type = String.class),
+@StoredProcedureParameter(mode = ParameterMode.IN, name =  ServiceReqLinkProc.v_status, type = String.class),
+@StoredProcedureParameter(mode = ParameterMode.IN, name =  ServiceReqLinkProc.v_serviceCode, type = String.class),
+@StoredProcedureParameter(mode = ParameterMode.IN, name =  ServiceReqLinkProc.v_createdFrom, type = OffsetDateTime.class),
+@StoredProcedureParameter(mode = ParameterMode.IN, name =  ServiceReqLinkProc.v_createdTo, type = OffsetDateTime.class),
+		}
+		, resultSetMappings = ServiceReqLinkProc.MAPPING_LIST),
+
+})
+
+@SqlResultSetMappings(value = { @SqlResultSetMapping(name = ServiceReqLinkProc.MAPPING_LIST, classes = {
+		@ConstructorResult(targetClass = ServiceReqLinkListResult.class, columns = {
+@ColumnResult(name = "req_vas_id", type = Long.class),
+@ColumnResult(name = "created_time", type = OffsetDateTime.class),
+@ColumnResult(name = "dichvu_time", type = OffsetDateTime.class),
+@ColumnResult(name = "service_request_code", type = String.class),
+@ColumnResult(name = "currency_code", type = String.class),
+@ColumnResult(name = "service_id", type = Long.class),
+@ColumnResult(name = "service_code", type = String.class),
+@ColumnResult(name = "service_name", type = String.class),
+@ColumnResult(name = "customer_id", type = Long.class),
+@ColumnResult(name = "customer_code", type = String.class),
+@ColumnResult(name = "customer_phone", type = String.class),
+@ColumnResult(name = "customer_name", type = String.class),
+@ColumnResult(name = "customer_account_id", type = Long.class),
+@ColumnResult(name = "amount", type = Double.class),
+@ColumnResult(name = "sender_fee", type = Double.class),
+@ColumnResult(name = "discount_amount", type = Double.class),
+@ColumnResult(name = "request_status", type = String.class),
+@ColumnResult(name = "payment_card_id", type = Long.class),
+@ColumnResult(name = "card_number", type = String.class),
+@ColumnResult(name = "holder_name", type = String.class),
+@ColumnResult(name = "bank_id", type = Long.class),
+@ColumnResult(name = "bank_code", type = String.class),
+@ColumnResult(name = "bank_trade_name", type = String.class),
+@ColumnResult(name = "payment_request_id", type = Long.class),
+@ColumnResult(name = "payment_channel_name", type = String.class),
+@ColumnResult(name = "payment_channel_code", type = String.class),
+@ColumnResult(name = "method_name", type = String.class),
+@ColumnResult(name = "method_code", type = String.class),
+@ColumnResult(name = "service_channel_id", type = Long.class),
+@ColumnResult(name = "service_channel_code", type = String.class),
+@ColumnResult(name = "vas_partner_req_status", type = String.class),
+@ColumnResult(name = "vas_vimo_res_code", type = String.class),
+
+		}) }), 
+ })
+
+public class ServiceReqLinkProc {
+	
+public static final String v_id  = "v_id";
+public static final String v_code  = "v_code";
+public static final String v_customerCode  = "v_customerCode";
+public static final String v_fullName  = "v_fullName";
+public static final String v_phoneNumber  = "v_phoneNumber";
+public static final String v_bankID  = "v_bankID";
+public static final String v_cardNumber  = "v_cardNumber";
+public static final String v_status  = "v_status";
+public static final String v_serviceCode  = "v_serviceCode";
+public static final String v_createdFrom  = "v_createdFrom";
+public static final String v_createdTo  = "v_createdTo";
+	
+	@Id
+	private Long id;
+}

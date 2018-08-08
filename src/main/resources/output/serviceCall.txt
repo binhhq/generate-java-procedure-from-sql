@@ -1,0 +1,11 @@
+query.setParameter(CLASS_NAME.v_id, id);
+query.setParameter(CLASS_NAME.v_code, code);
+query.setParameter(CLASS_NAME.v_customerCode, customerCode);
+query.setParameter(CLASS_NAME.v_fullName, fullName);
+query.setParameter(CLASS_NAME.v_phoneNumber, phoneNumber);
+query.setParameter(CLASS_NAME.v_bankID, bankID);
+query.setParameter(CLASS_NAME.v_cardNumber, cardNumber);
+query.setParameter(CLASS_NAME.v_status, status);
+query.setParameter(CLASS_NAME.v_serviceCode, serviceCode);
+query.setParameter(CLASS_NAME.v_createdFrom, createdFrom);
+query.setParameter(CLASS_NAME.v_createdTo, createdTo);

@@ -1,0 +1,29 @@
+
+@Entity
+@Table(name = "THIS_IS_TABLE")
+
+@NamedStoredProcedureQueries(value = {
+		
+
+		@NamedStoredProcedureQuery(name = KEY_CLASS_NAME.KEY_PROC_NAME, procedureName = KEY_CLASS_NAME.KEY_PROC_NAME, parameters = {
+				@StoredProcedureParameter(mode = ParameterMode.REF_CURSOR, name = KEY_CLASS_NAME.v_output, type = void.class),
+				KEY_PARAM_MAPPING
+		}
+		, resultSetMappings = ServiceReqLinkProc.MAPPING_LIST),
+
+})
+
+@SqlResultSetMappings(value = { @SqlResultSetMapping(name = ServiceReqLinkProc.MAPPING_LIST, classes = {
+		@ConstructorResult(targetClass = ServiceReqLinkListResult.class, columns = {
+					 KEY_COLUMN_RESULT 
+
+		}) }), 
+ })
+
+public class ServiceReqLinkProc {
+	
+	KEY_DEFINE_CONSTANT_VAR
+	
+	@Id
+	private Long id;
+}
