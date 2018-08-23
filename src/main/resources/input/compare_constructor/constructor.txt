@@ -1,0 +1,9 @@
+Long id, String code, Long serviceId, Long methodId, Long bankId, String bankTradeName,
+			OffsetDateTime created, OffsetDateTime updated, OffsetDateTime dvTime, String serviceName,
+			Long receiverCusId, String receiverCusName, String receiverCusCode, String receiverPhoneNumber,
+			Long receiverAccId, String receiverAccCode, Long senderCusId, String senderCusName, String senderCusCode,
+			String senderPhoneNumber, Long senderAccId, String senderAccCode, String accBank, String accHolder,
+			String accNumber, Long zoneId, String description, String flowKey, String paymentRequestCode,
+			String currencyCode, Double amount, Double fee, EnumMethodCode methodCode, String bankCode, String status,
+			String cardNumber, String holderName, String channelName, String channelCode, Long transId, Long cashInId,
+			String vimoResCode

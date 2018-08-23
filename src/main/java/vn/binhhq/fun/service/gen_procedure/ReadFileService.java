@@ -12,7 +12,7 @@ public class ReadFileService {
 	  throws IOException {
 		   File file = new File(fileName);
 		   List<String> result = Files.readLines(file, Charsets.UTF_8);
-		   System.out.println(result);
+//		   System.out.println(result);
 		   return result;
 	}
 	 

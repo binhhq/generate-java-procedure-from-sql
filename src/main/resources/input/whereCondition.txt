@@ -1,12 +1,21 @@
-AND (v_id IS NULL OR link.ID = v_id)
-      AND (v_code IS NULL OR req.CODE = v_code)
-      AND (v_customerCode IS NULL OR c.CODE = v_customerCode)
-      AND (v_fullName IS NULL OR c.FULLNAME = v_fullName)
-      AND (v_phoneNumber IS NULL OR c.PHONE_NUMBER = v_phoneNumber)
-      AND (v_code IS NULL OR req.CODE = v_code)
-      AND (v_bankID IS NULL OR b.id = v_bankID)
-      AND (v_cardNumber IS NULL OR pc.CARD_NUMBER = v_cardNumber OR li.MASK_INFO LIKE '%' || v_cardNumber || '%')
-      AND (v_status IS NULL OR link.STATUS = v_status)
-      AND (v_serviceCode IS NULL OR sb.CODE = v_serviceCode)
-      AND (v_createdFrom IS NULL OR li.CREATED > v_createdFrom)
-      AND (v_createdTo IS NULL OR li.CREATED < v_createdTo)
+( v_code IS NULL OR req.CODE = v_code)
+
+      AND (v_order_code IS NULL  OR c.CHECKOUT_ORDER_CODE = v_order_code)
+      AND (v_cash_in_code IS NULL  OR ci.CASH_IN_RECEIPT_CODE = v_cash_in_code)
+
+      AND (v_cus_name IS NULL  OR cus.FULLNAME LIKE '%' || v_cus_name || '%')
+      AND (v_email_phone IS NULL  OR(cus.EMAIL = v_email_phone
+           OR cus.PHONE_NUMBER = v_email_phone))
+AND (v_method_id IS NULL  OR c.SENDER_METHOD_ID = v_method_id)
+AND (v_bank_id IS NULL  OR c.SENDER_BANK_ID = v_bank_id)
+ANd (v_channel_id IS NULL  OR plog.PAYMENT_CHANNEL_ID = v_channel_id)
+And (v_card_number IS NULL  OR pc.CARD_NUMBER like '%' || v_card_number)
+AND (v_created_from IS NULL  OR req.CREATED >= v_created_from)
+AND (v_created_to IS NULL  OR req.CREATED <= v_created_to)
+AND (v_status IS NULL  OR c.STATUS = v_status)
+  ) tmp
+        WHERE (
+            tmp.rnum >= v_pagenum * v_pagesize
+        ) AND (
+            tmp.rnum < ( v_pagenum + 1 ) * v_pagesize
+        );
