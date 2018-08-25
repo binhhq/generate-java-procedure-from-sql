@@ -1,10 +1,8 @@
-package vn.binhhq.fun.service.gen_procedure;
+package vn.binhhq.fun.service.common;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.List;
-
-import org.junit.Test;
+import java.util.List; 
 
 import com.google.common.base.Charsets;
 import com.google.common.base.Joiner;

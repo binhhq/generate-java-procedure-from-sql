@@ -6,9 +6,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import vn.binhhq.fun.service.common.ReadFileService;
+import vn.binhhq.fun.service.common.WriteFileService;
 import vn.binhhq.fun.service.gen_procedure.FileUrl;
-import vn.binhhq.fun.service.gen_procedure.ReadFileService;
-import vn.binhhq.fun.service.gen_procedure.WriteFileService;
 import vn.binhhq.fun.service.gen_procedure.entity_result.ReadSelectQueryService;
 
 @Service

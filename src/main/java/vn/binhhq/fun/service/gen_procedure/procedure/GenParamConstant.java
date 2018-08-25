@@ -6,8 +6,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import vn.binhhq.fun.service.common.WriteFileService;
 import vn.binhhq.fun.service.gen_procedure.FileUrl;
-import vn.binhhq.fun.service.gen_procedure.WriteFileService;
 
 /**
  * 

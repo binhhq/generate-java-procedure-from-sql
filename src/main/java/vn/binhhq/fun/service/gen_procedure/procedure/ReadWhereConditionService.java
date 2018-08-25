@@ -8,8 +8,8 @@ import java.util.regex.Pattern;
 
 import org.springframework.stereotype.Service;
 
+import vn.binhhq.fun.service.common.ReadFileService;
 import vn.binhhq.fun.service.gen_procedure.FileUrl;
-import vn.binhhq.fun.service.gen_procedure.ReadFileService;
 
 @Service
 public class ReadWhereConditionService {

@@ -1,4 +1,4 @@
-package vn.binhhq.fun.service.gen_procedure;
+package vn.binhhq.fun.service.common;
 
 import java.util.ArrayList;
 import java.util.List;

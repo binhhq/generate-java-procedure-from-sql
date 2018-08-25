@@ -7,7 +7,7 @@ import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
-import vn.binhhq.fun.service.gen_procedure.ReadFileService;
+import vn.binhhq.fun.service.common.ReadFileService;
 
 @Service
 public class ReadConstructorService {

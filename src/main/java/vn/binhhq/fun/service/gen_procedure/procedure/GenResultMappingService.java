@@ -6,7 +6,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import vn.binhhq.fun.service.gen_procedure.PredictJavaType;
+import vn.binhhq.fun.service.common.PredictJavaType;
 
 @Service
 public class GenResultMappingService {

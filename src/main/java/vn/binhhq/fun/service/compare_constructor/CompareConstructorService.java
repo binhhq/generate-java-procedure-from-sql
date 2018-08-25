@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 
 import com.google.common.base.Preconditions;
 
-import vn.binhhq.fun.service.gen_procedure.WriteFileService;
+import vn.binhhq.fun.service.common.WriteFileService;
 
 @Service
 public class CompareConstructorService {

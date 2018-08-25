@@ -8,9 +8,9 @@ import org.springframework.stereotype.Service;
 
 import com.google.common.base.CaseFormat;
 
+import vn.binhhq.fun.service.common.PredictJavaType;
+import vn.binhhq.fun.service.common.WriteFileService;
 import vn.binhhq.fun.service.gen_procedure.FileUrl;
-import vn.binhhq.fun.service.gen_procedure.PredictJavaType;
-import vn.binhhq.fun.service.gen_procedure.WriteFileService;
 
 @Service
 public class GenEntityResultService {  

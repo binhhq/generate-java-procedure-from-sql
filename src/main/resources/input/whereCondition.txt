@@ -1,21 +1,59 @@
-( v_code IS NULL OR req.CODE = v_code)
-
-      AND (v_order_code IS NULL  OR c.CHECKOUT_ORDER_CODE = v_order_code)
-      AND (v_cash_in_code IS NULL  OR ci.CASH_IN_RECEIPT_CODE = v_cash_in_code)
-
-      AND (v_cus_name IS NULL  OR cus.FULLNAME LIKE '%' || v_cus_name || '%')
-      AND (v_email_phone IS NULL  OR(cus.EMAIL = v_email_phone
-           OR cus.PHONE_NUMBER = v_email_phone))
-AND (v_method_id IS NULL  OR c.SENDER_METHOD_ID = v_method_id)
-AND (v_bank_id IS NULL  OR c.SENDER_BANK_ID = v_bank_id)
-ANd (v_channel_id IS NULL  OR plog.PAYMENT_CHANNEL_ID = v_channel_id)
-And (v_card_number IS NULL  OR pc.CARD_NUMBER like '%' || v_card_number)
-AND (v_created_from IS NULL  OR req.CREATED >= v_created_from)
-AND (v_created_to IS NULL  OR req.CREATED <= v_created_to)
-AND (v_status IS NULL  OR c.STATUS = v_status)
-  ) tmp
+(
+                        v_code IS NULL
+                    OR
+                        req.code = v_code
+                ) AND (
+                        v_order_code IS NULL
+                    OR
+                        payout.vimo_mc_req_id = v_order_code
+                ) AND (
+                        v_cashout_id IS NULL
+                    OR
+                        co.id = v_cashout_id
+                ) AND (
+                        v_sender_cus_name IS NULL
+                    OR
+                        scus.fullname LIKE '%'
+                         ||  v_sender_cus_name
+                         ||  '%'
+                ) AND (
+                        v_s_email_phone IS NULL
+                    OR (
+                            scus.email = v_s_email_phone
+                        OR
+                            scus.phone_number = v_s_email_phone
+                    )
+                ) AND (
+                        v_method_id IS NULL
+                    OR
+                        payout.receiver_method_id = v_method_id
+                ) AND (
+                        v_bank_id IS NULL
+                    OR
+                        payout.receiver_bank_id = v_bank_id
+                ) AND (
+                        v_channel_id IS NULL
+                    OR
+                        plog.payment_channel_id = v_channel_id
+                ) AND (
+                        v_card_number IS NULL
+                    OR
+                        pc.card_number LIKE '%' || v_card_number
+                ) AND (
+                        v_created_from IS NULL
+                    OR
+                        req.created >= v_created_from
+                ) AND (
+                        v_created_to IS NULL
+                    OR
+                        req.created <= v_created_to
+                ) AND (
+                        v_status IS NULL
+                    OR
+                        payout.status = v_status
+                )
+            ) tmp
         WHERE (
             tmp.rnum >= v_pagenum * v_pagesize
         ) AND (
             tmp.rnum < ( v_pagenum + 1 ) * v_pagesize
-        );

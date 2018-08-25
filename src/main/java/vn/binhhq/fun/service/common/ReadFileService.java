@@ -1,4 +1,4 @@
-package vn.binhhq.fun.service.gen_procedure;
+package vn.binhhq.fun.service.common;
 
 import java.io.File;
 import java.io.IOException;

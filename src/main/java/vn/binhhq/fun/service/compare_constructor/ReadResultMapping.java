@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
 
 import org.springframework.stereotype.Service;
 
-import vn.binhhq.fun.service.gen_procedure.ReadFileService;
+import vn.binhhq.fun.service.common.ReadFileService;
 
 @Service
 public class ReadResultMapping {
