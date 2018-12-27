@@ -7,6 +7,7 @@ public class PredictJavaType {
 
 	private static final List<String> TIME_LIST = new ArrayList<>();
 	private static final List<String> AMOUNT_LIST = new ArrayList<>();
+	private static final List<String> PAGE = new ArrayList<>();
 
 	static {
 		TIME_LIST.add("created");
@@ -16,6 +17,11 @@ public class PredictJavaType {
 		AMOUNT_LIST.add("amount");
 		AMOUNT_LIST.add("discount");
 		AMOUNT_LIST.add("fee");
+		AMOUNT_LIST.add("balance");
+		
+		PAGE.add("pagenum");
+		PAGE.add("pagesize");
+		
 	}
 	
 	public static String getType(String item) {
@@ -32,6 +38,11 @@ public class PredictJavaType {
 		for (String temp : AMOUNT_LIST) {
 			if (item.toLowerCase().contains(temp))
 				return "Double";
+		}
+		
+		for (String temp : PAGE) {
+			if (item.toLowerCase().contains(temp))
+				return "Integer";
 		}
 
 		return fileType;

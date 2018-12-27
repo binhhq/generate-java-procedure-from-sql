@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import vn.binhhq.fun.service.gen_procedure.entity_result.GenEntityResultService;
 import vn.binhhq.fun.service.gen_procedure.entity_result.ReadSelectQueryService;
 import vn.binhhq.fun.service.gen_procedure.procedure.GenProcedure;
+import vn.binhhq.fun.service.gen_procedure.service_call.GenSearchReq;
 import vn.binhhq.fun.service.gen_procedure.service_call.GenServiceCall;
 
 @Service
@@ -22,12 +23,15 @@ public class GenService {
 	private GenProcedure genProcedure;
 	@Autowired
 	private GenServiceCall genServiceCall;
+	@Autowired
+	private GenSearchReq genSearchReq;
 
 	public void gen() throws IOException {
 		List<String> items = readSelectQueryService.read();
 		genEntityResultService.gen(items);
 		genProcedure.gen();
 		genServiceCall.gen();
+		genSearchReq.gen();
 	}
 	
  }

@@ -1,59 +1,16 @@
-(
-                        v_code IS NULL
-                    OR
-                        req.code = v_code
-                ) AND (
-                        v_order_code IS NULL
-                    OR
-                        payout.vimo_mc_req_id = v_order_code
-                ) AND (
-                        v_cashout_id IS NULL
-                    OR
-                        co.id = v_cashout_id
-                ) AND (
-                        v_sender_cus_name IS NULL
-                    OR
-                        scus.fullname LIKE '%'
-                         ||  v_sender_cus_name
-                         ||  '%'
-                ) AND (
-                        v_s_email_phone IS NULL
-                    OR (
-                            scus.email = v_s_email_phone
-                        OR
-                            scus.phone_number = v_s_email_phone
-                    )
-                ) AND (
-                        v_method_id IS NULL
-                    OR
-                        payout.receiver_method_id = v_method_id
-                ) AND (
-                        v_bank_id IS NULL
-                    OR
-                        payout.receiver_bank_id = v_bank_id
-                ) AND (
-                        v_channel_id IS NULL
-                    OR
-                        plog.payment_channel_id = v_channel_id
-                ) AND (
-                        v_card_number IS NULL
-                    OR
-                        pc.card_number LIKE '%' || v_card_number
-                ) AND (
-                        v_created_from IS NULL
-                    OR
-                        req.created >= v_created_from
-                ) AND (
-                        v_created_to IS NULL
-                    OR
-                        req.created <= v_created_to
-                ) AND (
-                        v_status IS NULL
-                    OR
-                        payout.status = v_status
-                )
-            ) tmp
-        WHERE (
-            tmp.rnum >= v_pagenum * v_pagesize
-        ) AND (
-            tmp.rnum < ( v_pagenum + 1 ) * v_pagesize
+    v_cash_in_receipt    IN nvarchar2 DEFAULT NULL,
+    v_cash_in_id           IN NUMBER DEFAULT NULL,
+    v_cus_phone_number   IN nvarchar2 DEFAULT NULL,
+    v_cus_name          IN nvarchar2 DEFAULT NULL,
+    v_bank_id           IN NUMBER DEFAULT NULL,
+    v_bank_recv_id       IN NUMBER DEFAULT NULL,
+    v_status           IN nvarchar2 DEFAULT NULL,
+    v_service_id        IN NUMBER DEFAULT NULL,
+    v_method_id         IN NUMBER DEFAULT NULL,
+    v_created_from      IN payment_cash_ins.created%type DEFAULT NULL,
+    v_created_to        IN payment_cash_ins.created%type DEFAULT NULL,
+    v_channel_id        IN NUMBER DEFAULT NULL,
+    v_card_number       IN VARCHAR2 DEFAULT NULL,
+        v_service_req_code       IN VARCHAR2 DEFAULT NULL,
+    v_page_num          IN NUMBER DEFAULT 0,
+    v_page_size         IN NUMBER DEFAULT 100

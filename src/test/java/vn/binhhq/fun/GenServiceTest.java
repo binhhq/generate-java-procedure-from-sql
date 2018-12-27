@@ -7,7 +7,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import vn.binhhq.fun.service.gen_procedure.GenService;
- 
+
+import java.time.OffsetDateTime;
+import java.time.format.DateTimeFormatter;
+
 
 @SpringBootTest
 @RunWith(SpringRunner.class)
@@ -20,7 +23,7 @@ public class GenServiceTest {
 	public void testList() {
 		try{
 			service.gen();
-		} catch(Exception e){
+        } catch(Exception e){
 			e.printStackTrace();
 		}
 	}

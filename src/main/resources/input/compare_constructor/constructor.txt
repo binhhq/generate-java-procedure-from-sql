@@ -1,8 +1,3 @@
-Long id, String code, String vimoMcReqId, OffsetDateTime created,
-			OffsetDateTime updated, String outPaymentStatus, String referServiceReqCode, Double amount,
-			Double senderFee, Double receiverFee, String currencyCode, String status, String outVimoResCode,
-			Long receiverBankId, String methodCode, String methodName, String bankCode, String bankName,
-			String channelName, String channelCode, String vimoTransId, String vimoResCode, Long cashOutId,
-			String cardNumber, String holderName, Long senderCusId, String senderCusCode, String senderCusName,
-			String senderAccountCode, Long receiverCusId, String receiverCusCode, String receiverCusName,
-			String receiverAccountCode, String accBank, String accHolder, String accNumber, String recoverMode
+Long id, String groupCode, String code, String image, String url, String status,
+			String position, String channel, String locale, OffsetDateTime created, Long createdBy,
+			OffsetDateTime updated, Long updatedBy, String version

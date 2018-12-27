@@ -7,6 +7,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.google.common.base.CaseFormat;
+
 import vn.binhhq.fun.service.common.WriteFileService;
 import vn.binhhq.fun.service.gen_procedure.FileUrl;
 import vn.binhhq.fun.service.gen_procedure.procedure.ReadWhereConditionService;
@@ -19,17 +21,18 @@ public class GenServiceCall {
 	
 	public List<String> gen() throws IOException{
 		List<String> items = readWhereConditionService.read();
-		List<String> result = new ArrayList();
+		List<String> result = new ArrayList(); 
 		for (String item : items) {
 			String temp = "query.setParameter(CLASS_NAME."+ item +", "+removeV(item)+");";
-			result.add(temp);
-		} 
-		WriteFileService.write(FileUrl.OUTPUT_serviceCall, result);
+			result.add(temp); 
+		}  
+		WriteFileService.write(FileUrl.OUTPUT_serviceCall, result); 
 		return result;
 	}
 	
 	private String removeV(String item){
 		item = item.replaceAll("v_", "");
+		item = CaseFormat.LOWER_UNDERSCORE.to(CaseFormat.LOWER_CAMEL, item);
 		return item;
 	}
 }
